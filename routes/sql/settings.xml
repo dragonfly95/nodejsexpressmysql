@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<query>
+    <sql id="includeWhere">
+        WHERE 1=1 and groupID=#{name}
+    </sql>
+
+    <select id="selectBoardList">
+        SELECT *
+          FROM settings
+          {include refid="includeWhere"}
+         ORDER BY groupID DESC
+    </select>
+
+</query>
