@@ -11,4 +11,589 @@
          ORDER BY groupID DESC
     </select>
 
+    
+
+    <sql id="conditionWhere_cardreader">
+        where 1=1
+    </sql>
+    <select id="selectCountCardreader">
+        select count(*) cnt
+        from `cardreader`
+        {include refid="conditionWhere_cardreader"}
+    </select>
+    <select id="selectListCardreader">
+        select count(*) cnt
+        from `cardreader`
+        {include refid="conditionWhere_cardreader"}
+    </select>
+    <insert id="insertCardreader">
+        INSERT INTO `cardreader` (`groupID`, `storeID`, `cardReaderID`, `IP`, `Active`, `onoff`, `createDate`, `updateDate`) 
+        VALUES (#{groupID}, #{storeID}, #{cardReaderID}, #{IP}, #{Active}, #{onoff},now(), now())
+    </insert>
+
+    <update id="updateCardreader">
+        update `cardreader` set 
+          `IP` = #{IP}
+        , `Active` = #{Active}
+        , `onoff` = #{onoff}
+        , `updateDate` = now();
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `cardReaderID` = #{cardReaderID}
+    </update>
+    <delete id="deleteCardreader">
+        delete from `cardreader`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `cardReaderID` = #{cardReaderID}
+    </delete>
+
+
+
+    <sql id="conditionWhere_deviceset">
+        where 1=1
+    </sql>
+    <select id="selectCountDeviceset">
+        select count(*) cnt
+        from `deviceset`
+        {include refid="conditionWhere_deviceset"}
+    </select>
+    <select id="selectListDeviceset">
+        select `groupID`, `storeID`, `mainDeviceID`, `attachDeviceID`, `attachDeviceType`, `createDate`, `updateDate`
+        from `deviceset`
+        {include refid="conditionWhere_deviceset"}
+    </select>
+    <insert id="insertDeviceset">
+        INSERT INTO `deviceset` (`groupID`, `storeID`, `mainDeviceID`, `attachDeviceID`, `attachDeviceType`, `createDate`, `updateDate`) 
+        VALUES (#{groupID}, #{storeID}, #{mainDeviceID}, #{attachDeviceID}, #{attachDeviceType}, now(), now())
+    </insert>
+    <update id="updateDeviceset">
+        update `deviceset` set 
+        , `attachDeviceID` = #{attachDeviceID}
+        , `attachDeviceType` = #{attachDeviceType}
+        , `updateDate` = now()
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `mainDeviceID` = #{mainDeviceID}
+    </update>
+    <delete id="deleteDeviceset">
+        delete from `deviceset`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `mainDeviceID` = #{mainDeviceID}
+    </delete>
+
+
+
+    <sql id="conditionWhere_item">
+        where 1=1
+    </sql>
+    <select id="selectCountItem">
+        select count(*) cnt
+        from `item`
+        {include refid="conditionWhere_item"}
+    </select>
+    <select id="selectListItem">
+        select `groupID`, `storeID`, `itemID`, `itemName`, `itemName2`, `description`
+            , `price`, `rateDiscount`, `imagefilename`, `tax1`, `tax2`, `tax3`, `tax4`
+            , `togoPrice`, `ageCheck`, `ageLimit`, `Active`, `createDate`, `updateDate`
+        from `item`
+        {include refid="conditionWhere_item"}
+    </select>
+    <insert id="insertItem">
+        INSERT INTO `item` (`groupID`, `storeID`, `itemID`, `itemName`, `itemName2`, `description`, `price`, `rateDiscount`, `imagefilename`, `tax1`, `tax2`, `tax3`, `tax4`, `togoPrice`, `ageCheck`, `ageLimit`, `Active`, `createDate`, `updateDate`) 
+        VALUES (#{groupID}, #{storeID}, #{itemID}, #{itemName}, #{itemName2}, #{description}, #{price}, #{rateDiscount}, #{imagefilename}, #{tax1}, #{tax2}, #{tax3}, #{tax4}, #{togoPrice}, #{ageCheck}, #{ageLimit}, #{Active}, now(), now())
+    </insert>
+    <update id="updateItem">
+        update `item` set
+          `groupID` = #{groupID}
+        , `storeID` = #{storeID}
+        , `itemID` = #{itemID}
+        , `itemName` = #{itemName}
+        , `itemName2` = #{itemName2}
+        , `description` = #{description}
+        , `price` = #{price}
+        , `rateDiscount` = #{rateDiscount}
+        , `imagefilename` = #{imagefilename}
+        , `tax1` = #{tax1}
+        , `tax2` = #{tax2}
+        , `tax3` = #{tax3}
+        , `tax4` = #{tax4}
+        , `togoPrice` = #{togoPrice}
+        , `ageCheck` = #{ageCheck}
+        , `ageLimit` = #{ageLimit}
+        , `Active` = #{Active}
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `itemID` = #{itemID}
+    </update>
+    <delete id="deleteItem">
+        delete from `item`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `itemID` = #{itemID}
+    </delete>
+
+
+
+
+    <sql id="conditionWhere_itemmodifiergroup">
+        where 1=1
+    </sql>
+    <select id="selectCountItemmodifiergroup">
+        select count(*) cnt
+        from `itemmodifiergroup`
+        {include refid="conditionWhere_itemmodifiergroup"}
+    </select>
+    <select id="selectListItemmodifiergroup">
+        select `groupID`, `storeID`, `itemID`, `modifierGroupID`, `modifierGroupIdx`, `maxQty`, `createDate`, `updateDate`
+        from `itemmodifiergroup`
+        {include refid="conditionWhere_itemmodifiergroup"}
+    </select>
+    <insert id="insertItemmodifiergroup">
+        INSERT INTO `itemmodifiergroup` (`groupID`, `storeID`, `itemID`, `modifierGroupID`, `modifierGroupIdx`, `maxQty`, `createDate`, `updateDate`) VALUES (`groupID`, `storeID`, `itemID`, `modifierGroupID`, `modifierGroupIdx`, `maxQty`, now(), now())
+    </insert>
+    <update id="updateItemmodifiergroup">
+        update `itemmodifiergroup` set 
+            `modifierGroupIdx` = #{modifierGroupIdx}
+          , `maxQty` = #{maxQty}
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `itemID` = #{itemID}
+          and `modifierGroupID` = #{modifierGroupID}
+    </update>
+    <delete id="deleteItemmodifiergroup">
+        delete from `itemmodifiergroup`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `itemID` = #{itemID}
+          and `modifierGroupID` = #{modifierGroupID}
+    </delete>
+
+
+
+
+    <sql id="conditionWhere_kiosk">
+        where 1=1
+    </sql>
+    <select id="selectCountKiosk">
+        select count(*) cnt 
+        from `kiosk`
+        {include refid="conditionWhere_kiosk"}
+    </select>
+    <select id="selectListKiosk">
+        select `groupID`, `storeID`, `kioskID`, `IP`, `Active`, `onoff`, `createDate`, `updateDate`
+        from `kiosk`
+        {include refid="conditionWhere_kiosk"}
+    </select>
+    <insert id="insertKiosk">
+        INSERT INTO `kiosk` (`groupID`, `storeID`, `kioskID`, `IP`, `Active`, `onoff`, `createDate`, `updateDate`) 
+        VALUES (#{groupID}, #{storeID}, #{kioskID}, #{IP}, #{Active}, #{onoff}, now(), now())
+    </insert>
+    <update id="updateKiosk">
+        update `kiosk` set 
+          `IP` = #{IP}
+        , `Active` = #{Active}
+        , `onoff` = #{onoff}
+        , `updateDate` = now()
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `kioskID` = #{kioskID}
+    </update>
+    <delete id="deleteKiosk">
+        delete from `kiosk`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `kioskID` = #{kioskID}
+    </delete>
+
+
+    ;
+
+    <sql id="conditionWhere_menu">
+        where 1=1
+    </sql>
+    <select id="selectCountMenu">
+        select count(*) cnt
+        from `menu`
+        {include refid="conditionWhere_menu"}
+    </select>
+    <select id="selectListMenu">
+        select `groupID`, `storeID`, `menuGroup`, `menuLevel`, `menuIdx`, `createDate`, `updateDate`
+        from `menu`
+        {include refid="conditionWhere_menu"}
+    </select>
+    <insert id="insertMenu">
+        INSERT INTO `menu` (`groupID`, `storeID`, `menuGroup`, `menuLevel`, `menuIdx`, `createDate`, `updateDate`) 
+        VALUES (#{groupID}, #{storeID}, #{menuGroup}, #{menuLevel}, #{menuIdx}, now(), now())
+    </insert>
+
+    <update id="updateMenu">
+        update `menu` set
+          `menuGroup` = #{menuGroup}
+        , `menuLevel` = #{menuLevel}
+        , `menuIdx` = #{menuIdx}
+        , `updateDate` = now()
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+    </update>
+
+    <delete id="deleteMenu">
+        delete from `menu`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+    </delete>
+
+
+
+
+    <sql id="conditionWhere_menugroup">
+        where 1=1
+    </sql>
+    <select id="selectCountMenugroup">
+        select count(*) cnt
+        from `menugroup`
+        {include refid="conditionWhere_menugroup"}
+    </select>
+    <select id="selectListMenugroup">
+        select `groupID`, `storeID`, `menuGroup`, `menuGroupName`, `createDate`, `updateDate`
+        from `menugroup`
+        {include refid="conditionWhere_menugroup"}
+    </select>
+    <insert id="insertMenugroup">
+        INSERT INTO `menugroup` (`groupID`, `storeID`, `menuGroup`, `menuGroupName`, `createDate`, `updateDate`) 
+        VALUES (#{groupID}, #{storeID}, #{menuGroup}, #{menuGroupName}, now(), now())
+    </insert>
+
+    <update id="updateMenugroup">
+        update `menugroup` set 
+        , `menuGroup` = #{menuGroup}
+        , `menuGroupName` = #{menuGroupName}
+        , `updateDate` = now()
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+    </update>
+    <delete id="deleteMenugroup">
+        delete from `menugroup`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+    </delete>
+
+
+
+    <sql id="conditionWhere_menuitem">
+        where 1=1
+    </sql>
+    <select id="selectCountMenuitem">
+        select count(*) cnt
+        from `menuitem`
+        {include refid="conditionWhere_menuitem"}
+    </select>
+    <select id="selectListMenuitem">
+        select `groupID`, `storeID`, `menuGroup`, `menuLevel`, `menuIdx`, `itemDisplayIdx`
+            , `itemID`, `modifierGroupDisplayIdx`, `modifierGroupID`, `modifierItemDisplayIdx`
+            , `modifierItemID`, `createDate`, `updateDate`
+        from `menuitem`
+        {include refid="conditionWhere_menuitem"}
+    </select>
+    <insert id="insertMenuitem">
+        INSERT INTO `menuitem` (`groupID`, `storeID`, `menuGroup`, `menuLevel`, `menuIdx`, `itemDisplayIdx`, `itemID`, `modifierGroupDisplayIdx`, `modifierGroupID`, `modifierItemDisplayIdx`, `modifierItemID`, `createDate`, `updateDate`) 
+        VALUES (#{groupID}, #{storeID}, #{menuGroup}, #{menuLevel}, #{menuIdx}, #{itemDisplayIdx}, #{itemID}, #{modifierGroupDisplayIdx}, #{modifierGroupID}, #{modifierItemDisplayIdx}, #{modifierItemID}, now(), now())
+    </insert>
+    <update id="updateMenuitem">
+        update `menuitem` set 
+          `menuGroup` = #{menuGroup}
+        , `menuLevel` = #{menuLevel}
+        , `menuIdx` = #{menuIdx}
+        , `itemDisplayIdx` = #{itemDisplayIdx}
+        , `itemID` = #{itemID}
+        , `modifierGroupDisplayIdx` = #{modifierGroupDisplayIdx}
+        , `modifierGroupID` = #{modifierGroupID}
+        , `modifierItemDisplayIdx` = #{modifierItemDisplayIdx}
+        , `modifierItemID` = #{modifierItemID}
+        , `updateDate` = now()
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `menuGroup` = #{menuGroup}
+    </update>
+
+    <delete id="deleteMenuitem">
+        delete from `menuitem`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `menuGroup` = #{menuGroup}
+
+    </delete>
+
+
+
+
+    <sql id="conditionWhere_modifiergroup">
+        where 1=1
+    </sql>
+    <select id="selectCountModifiergroup">
+        select count(*) cnt
+        from `modifiergroup`
+        {include refid="conditionWhere_modifiergroup"}
+    </select>
+    <select id="selectListModifiergroup">
+        select `groupID`, `storeID`, `modifierGroupID`, `modifierGroupName`, `maxQty`, `createDate`, `updateDate`
+        from `modifiergroup`
+        {include refid="conditionWhere_modifiergroup"}
+    </select>
+    <insert id="insertModifiergroup">
+        INSERT INTO `modifiergroup` (`groupID`, `storeID`, `modifierGroupID`, `modifierGroupName`, `maxQty`, `createDate`, `updateDate`) 
+        VALUES (#{groupID},#{storeID},#{modifierGroupID},#{modifierGroupName},#{maxQty}, now(), now())
+    </insert>
+    <update id="updateModifiergroup">
+        update `modifiergroup` set 
+          `modifierGroupName` = #{modifierGroupName}
+        , `maxQty` = #{maxQty}
+        , `updateDate` = now()
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `modifierGroupID` = #{modifierGroupID}
+    </update>
+    <delete id="deleteModifiergroup">
+        delete from `modifiergroup`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `modifierGroupID` = #{modifierGroupID}
+    </delete>
+
+
+
+    <sql id="conditionWhere_modifiergroupitem">
+        where 1=1
+    </sql>
+    <select id="selectCountModifiergroupitem">
+        select count(*) cnt
+        from `modifiergroupitem`
+        {include refid="conditionWhere_modifiergroupitem"}
+    </select>
+    <select id="selectListModifiergroupitem">
+        select `groupID`, `storeID`, `modifierGroupID`, `modifierItemID`, `createDate`, `updateDate`
+        from `modifiergroupitem`
+        {include refid="conditionWhere_modifiergroupitem"}
+    </select>
+    <insert id="insertModifiergroupitem">
+        INSERT INTO `modifiergroupitem` (`groupID`, `storeID`, `modifierGroupID`, `modifierItemID`, `createDate`, `updateDate`) 
+        VALUES (#{groupID}, #{storeID}, #{modifierGroupID}, #{modifierItemID}, now(), now())
+    </insert>
+    <update id="updateModifiergroupitem">
+        update `modifiergroupitem` set 
+          `modifierItemID` = #{modifierItemID}
+        , `updateDate` = now()
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `modifierGroupID` = #{modifierGroupID}
+    </update>
+
+    <delete id="deleteModifiergroupitem">
+        delete from `modifiergroupitem`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `modifierGroupID` = #{modifierGroupID}
+    </delete>
+
+
+
+    <sql id="conditionWhere_modifieritem">
+        where 1=1
+    </sql>
+    <select id="selectCountModifieritem">
+        select count(*) cnt
+        from `modifieritem`
+        {include refid="conditionWhere_modifieritem"}
+    </select>
+    <select id="selectListModifieritem">
+        select `groupID`, `storeID`, `modifierItemID`, `ModifierItemName`, `ModifierItemName2`, `ModifierItemPrice`, `tax1`, `tax2`, `tax3`, `tax4`, `Active`, `createDate`, `updateDate`
+        from `modifieritem`
+        {include refid="conditionWhere_modifieritem"}
+    </select>
+    <insert id="insertModifieritem">
+        INSERT INTO `modifieritem` (`groupID`, `storeID`, `modifierItemID`, `ModifierItemName`, `ModifierItemName2`, `ModifierItemPrice`, `tax1`, `tax2`, `tax3`, `tax4`, `Active`, `createDate`, `updateDate`) 
+        VALUES (#{groupID}, #{storeID}, #{modifierItemID}, #{ModifierItemName}, #{ModifierItemName2}, #{ModifierItemPrice}, #{tax1}, #{tax2}, #{tax3}, #{tax4}, #{Active}, now(), now())
+    </insert>
+
+    <update id="updateModifieritem">
+        update `modifieritem` set 
+          `ModifierItemName` = #{ModifierItemName}
+        , `ModifierItemName2` = #{ModifierItemName2}
+        , `ModifierItemPrice` = #{ModifierItemPrice}
+        , `tax1` = #{tax1}
+        , `tax2` = #{tax2}
+        , `tax3` = #{tax3}
+        , `tax4` = #{tax4}
+        , `Active` = #{Active}
+        , `updateDate` = now()
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `modifierItemID` = #{modifierItemID}
+    </update>
+    <delete id="deleteModifieritem">
+        delete from `modifieritem`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `modifierItemID` = #{modifierItemID}
+    </delete>
+
+
+
+
+
+    <sql id="conditionWhere_pos">
+        where 1=1
+    </sql>
+    <select id="selectCountPos">
+        select count(*) cnt 
+        from `pos`
+        {include refid="conditionWhere_pos"}
+    </select>
+
+    <select id="selectListPos">
+        select `groupID`, `storeID`,`posId`,`IP`,`Active`,`onoff`,`createDate`,`updateDate`
+        from `pos`
+        {include refid="conditionWhere_pos"}
+    </select>
+
+    <insert id="insertPos">
+        insert into `pos` (`groupID`, `storeID`,`posId`,`IP`,`Active`,`onoff`,`createDate`,`updateDate`)
+        values (#{groupID},#{storeID},#{posId},#{IP},#{Active},#{onoff},now(), now())
+    </insert>
+
+    <update id="updatePos">
+        update `pos` set
+        `IP` = #{IP}
+        ,`Active` = #{Active}
+        ,`onoff` = #{onoff}
+        , `updateDate` = now()
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `posId` = #{posId}
+    </update>
+
+    <delete id="deletePos">
+        delete from `pos`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `posId` = #{posId}
+    </delete>
+
+
+
+
+    <sql id="conditionWhere_printer">
+        where 1=1
+    </sql>
+
+    <select id="selectCountPrinter">
+        select count(*) cnt 
+        from `printer`
+        {include refid="conditionWhere_printer"}
+    </select>
+    <select id="selectListPrinter">
+        select `groupID`, `storeID`,`posId`,`IP`,`Active`,`onoff`,`createDate`,`updateDate`
+        from `printer`
+        {include refid="conditionWhere_printer"}
+    </select>
+    <insert id="insertPrinter">
+        insert into `printer` (`groupID`, `storeID`,`posId`,`IP`,`Active`,`onoff`,`createDate`,`updateDate`)
+        values (#{groupID},#{storeID},#{posId},#{IP},#{Active},#{onoff},now(),now())
+    </insert>
+    <update id="updatePrinter">
+        update `printer` set 
+        `IP` = #{IP}
+        ,`Active` = #{Active}
+        ,`onoff` = #{onoff}
+        , `updateDate` = now()
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `posId` = #{posId}
+    </update>
+    <delete id="deletePrinter">
+        delete from `printer` 
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `posId` = #{posId}
+    </delete>
+
+
+
+
+    <sql id="conditionWhere_settings">
+        where 1=1
+    </sql>
+
+    <select id="selectCountSettings">
+        select count(*) cnt 
+        from `settings`
+        {include refid="conditionWhere_settings"}
+    </select>
+    <select id="selectListSettings">
+        select `groupID`, `storeID`, `StoreName`, `StorePhone`, `Addr1`, `Addr2`, `City`, `State`, `ZipCode`, `DisplayMode`
+            , `Tax1`, `Tax2`, `Tax3`, `Tax4`, `createDate`, `updateDate`
+        from `settings`
+        {include refid="conditionWhere_settings"}
+    </select>
+
+    <insert id="insertSettings">
+        INSERT INTO `settings` (`groupID`, `storeID`, `StoreName`, `StorePhone`, `Addr1`, `Addr2`, `City`, `State`, `ZipCode`, `DisplayMode`, `Tax1`, `Tax2`, `Tax3`, `Tax4`, `createDate`, `updateDate`) 
+        VALUES (#{groupID},#{storeID},#{StoreName},#{StorePhone},#{Addr1},#{Addr2},#{City},#{State},#{ZipCode},#{DisplayMode},#{Tax1},#{Tax2},#{Tax3},#{Tax4},now(),now())
+    </insert>
+
+    <update id="updateSettings">
+        update `settings` set 
+          `StoreName` = #{StoreName}
+        , `StorePhone` = #{StorePhone}
+        , `Addr1` = #{Addr1}
+        , `Addr2` = #{Addr2}
+        , `City` = #{City}
+        , `State` = #{State}
+        , `ZipCode` = #{ZipCode}
+        , `DisplayMode` = #{DisplayMode}
+        , `Tax1` = #{Tax1}
+        , `Tax2` = #{Tax2}
+        , `Tax3` = #{Tax3}
+        , `Tax4` = #{Tax4}
+        , `updateDate` = now()
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+    </update>
+
+    <delete id="deleteSettings">
+        delete from `settings`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+    </delete>
+
+
 </query>
