@@ -13,6 +13,7 @@
 
     
 
+
     <sql id="conditionWhere_cardreader">
         where 1=1
     </sql>
@@ -22,9 +23,17 @@
         {include refid="conditionWhere_cardreader"}
     </select>
     <select id="selectListCardreader">
-        select count(*) cnt
+        select `groupID`, `storeID`, `cardReaderID`, `IP`, `Active`, `onoff`, `createDate`, `updateDate`
         from `cardreader`
         {include refid="conditionWhere_cardreader"}
+    </select>
+    <select id="selectDetailCardreader">
+        select `groupID`, `storeID`, `cardReaderID`, `IP`, `Active`, `onoff`, `createDate`, `updateDate`
+        from `cardreader`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `cardReaderID` = #{cardReaderID}        
     </select>
     <insert id="insertCardreader">
         INSERT INTO `cardreader` (`groupID`, `storeID`, `cardReaderID`, `IP`, `Active`, `onoff`, `createDate`, `updateDate`) 
@@ -65,6 +74,14 @@
         from `deviceset`
         {include refid="conditionWhere_deviceset"}
     </select>
+    <select id="selectDetailDeviceset">
+        select `groupID`, `storeID`, `mainDeviceID`, `attachDeviceID`, `attachDeviceType`, `createDate`, `updateDate`
+        from `deviceset`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `mainDeviceID` = #{mainDeviceID}      
+    </select>
     <insert id="insertDeviceset">
         INSERT INTO `deviceset` (`groupID`, `storeID`, `mainDeviceID`, `attachDeviceID`, `attachDeviceType`, `createDate`, `updateDate`) 
         VALUES (#{groupID}, #{storeID}, #{mainDeviceID}, #{attachDeviceID}, #{attachDeviceType}, now(), now())
@@ -103,6 +120,16 @@
             , `togoPrice`, `ageCheck`, `ageLimit`, `Active`, `createDate`, `updateDate`
         from `item`
         {include refid="conditionWhere_item"}
+    </select>
+    <select id="selectDetailItem">
+        select `groupID`, `storeID`, `itemID`, `itemName`, `itemName2`, `description`
+            , `price`, `rateDiscount`, `imagefilename`, `tax1`, `tax2`, `tax3`, `tax4`
+            , `togoPrice`, `ageCheck`, `ageLimit`, `Active`, `createDate`, `updateDate`
+        from `item`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `itemID` = #{itemID}   
     </select>
     <insert id="insertItem">
         INSERT INTO `item` (`groupID`, `storeID`, `itemID`, `itemName`, `itemName2`, `description`, `price`, `rateDiscount`, `imagefilename`, `tax1`, `tax2`, `tax3`, `tax4`, `togoPrice`, `ageCheck`, `ageLimit`, `Active`, `createDate`, `updateDate`) 
@@ -156,6 +183,15 @@
         from `itemmodifiergroup`
         {include refid="conditionWhere_itemmodifiergroup"}
     </select>
+    <select id="selectDetailItemmodifiergroup">
+        select `groupID`, `storeID`, `itemID`, `modifierGroupID`, `modifierGroupIdx`, `maxQty`, `createDate`, `updateDate`
+        from `itemmodifiergroup`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `itemID` = #{itemID}
+          and `modifierGroupID` = #{modifierGroupID}
+    </select>
     <insert id="insertItemmodifiergroup">
         INSERT INTO `itemmodifiergroup` (`groupID`, `storeID`, `itemID`, `modifierGroupID`, `modifierGroupIdx`, `maxQty`, `createDate`, `updateDate`) VALUES (`groupID`, `storeID`, `itemID`, `modifierGroupID`, `modifierGroupIdx`, `maxQty`, now(), now())
     </insert>
@@ -194,6 +230,14 @@
         from `kiosk`
         {include refid="conditionWhere_kiosk"}
     </select>
+    <select id="selectDetailKiosk">
+        select `groupID`, `storeID`, `kioskID`, `IP`, `Active`, `onoff`, `createDate`, `updateDate`
+        from `kiosk`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `kioskID` = #{kioskID}
+    </select>
     <insert id="insertKiosk">
         INSERT INTO `kiosk` (`groupID`, `storeID`, `kioskID`, `IP`, `Active`, `onoff`, `createDate`, `updateDate`) 
         VALUES (#{groupID}, #{storeID}, #{kioskID}, #{IP}, #{Active}, #{onoff}, now(), now())
@@ -218,7 +262,7 @@
     </delete>
 
 
-    ;
+
 
     <sql id="conditionWhere_menu">
         where 1=1
@@ -232,6 +276,13 @@
         select `groupID`, `storeID`, `menuGroup`, `menuLevel`, `menuIdx`, `createDate`, `updateDate`
         from `menu`
         {include refid="conditionWhere_menu"}
+    </select>
+    <select id="selectDetailMenu">
+        select `groupID`, `storeID`, `menuGroup`, `menuLevel`, `menuIdx`, `createDate`, `updateDate`
+        from `menu`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
     </select>
     <insert id="insertMenu">
         INSERT INTO `menu` (`groupID`, `storeID`, `menuGroup`, `menuLevel`, `menuIdx`, `createDate`, `updateDate`) 
@@ -272,6 +323,13 @@
         from `menugroup`
         {include refid="conditionWhere_menugroup"}
     </select>
+    <select id="selectDetailMenugroup">
+        select `groupID`, `storeID`, `menuGroup`, `menuGroupName`, `createDate`, `updateDate`
+        from `menugroup`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+    </select>
     <insert id="insertMenugroup">
         INSERT INTO `menugroup` (`groupID`, `storeID`, `menuGroup`, `menuGroupName`, `createDate`, `updateDate`) 
         VALUES (#{groupID}, #{storeID}, #{menuGroup}, #{menuGroupName}, now(), now())
@@ -309,6 +367,16 @@
             , `modifierItemID`, `createDate`, `updateDate`
         from `menuitem`
         {include refid="conditionWhere_menuitem"}
+    </select>
+    <select id="selectDetailMenuitem">
+        select `groupID`, `storeID`, `menuGroup`, `menuLevel`, `menuIdx`, `itemDisplayIdx`
+            , `itemID`, `modifierGroupDisplayIdx`, `modifierGroupID`, `modifierItemDisplayIdx`
+            , `modifierItemID`, `createDate`, `updateDate`
+        from `menuitem`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `menuGroup` = #{menuGroup}
     </select>
     <insert id="insertMenuitem">
         INSERT INTO `menuitem` (`groupID`, `storeID`, `menuGroup`, `menuLevel`, `menuIdx`, `itemDisplayIdx`, `itemID`, `modifierGroupDisplayIdx`, `modifierGroupID`, `modifierItemDisplayIdx`, `modifierItemID`, `createDate`, `updateDate`) 
@@ -357,6 +425,14 @@
         from `modifiergroup`
         {include refid="conditionWhere_modifiergroup"}
     </select>
+    <select id="selectDetailModifiergroup">
+        select `groupID`, `storeID`, `modifierGroupID`, `modifierGroupName`, `maxQty`, `createDate`, `updateDate`
+        from `modifiergroup`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `modifierGroupID` = #{modifierGroupID}
+    </select>
     <insert id="insertModifiergroup">
         INSERT INTO `modifiergroup` (`groupID`, `storeID`, `modifierGroupID`, `modifierGroupName`, `maxQty`, `createDate`, `updateDate`) 
         VALUES (#{groupID},#{storeID},#{modifierGroupID},#{modifierGroupName},#{maxQty}, now(), now())
@@ -394,6 +470,14 @@
         from `modifiergroupitem`
         {include refid="conditionWhere_modifiergroupitem"}
     </select>
+    <select id="selectDetailModifiergroupitem">
+        select `groupID`, `storeID`, `modifierGroupID`, `modifierItemID`, `createDate`, `updateDate`
+        from `modifiergroupitem`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `modifierGroupID` = #{modifierGroupID}
+    </select>
     <insert id="insertModifiergroupitem">
         INSERT INTO `modifiergroupitem` (`groupID`, `storeID`, `modifierGroupID`, `modifierItemID`, `createDate`, `updateDate`) 
         VALUES (#{groupID}, #{storeID}, #{modifierGroupID}, #{modifierItemID}, now(), now())
@@ -430,6 +514,14 @@
         select `groupID`, `storeID`, `modifierItemID`, `ModifierItemName`, `ModifierItemName2`, `ModifierItemPrice`, `tax1`, `tax2`, `tax3`, `tax4`, `Active`, `createDate`, `updateDate`
         from `modifieritem`
         {include refid="conditionWhere_modifieritem"}
+    </select>
+    <select id="selectDetailModifieritem">
+        select `groupID`, `storeID`, `modifierItemID`, `ModifierItemName`, `ModifierItemName2`, `ModifierItemPrice`, `tax1`, `tax2`, `tax3`, `tax4`, `Active`, `createDate`, `updateDate`
+        from `modifieritem`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `modifierItemID` = #{modifierItemID}
     </select>
     <insert id="insertModifieritem">
         INSERT INTO `modifieritem` (`groupID`, `storeID`, `modifierItemID`, `ModifierItemName`, `ModifierItemName2`, `ModifierItemPrice`, `tax1`, `tax2`, `tax3`, `tax4`, `Active`, `createDate`, `updateDate`) 
@@ -478,7 +570,14 @@
         from `pos`
         {include refid="conditionWhere_pos"}
     </select>
-
+    <select id="selectDetailPos">
+        select `groupID`, `storeID`,`posId`,`IP`,`Active`,`onoff`,`createDate`,`updateDate`
+        from `pos`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `posId` = #{posId}
+    </select>
     <insert id="insertPos">
         insert into `pos` (`groupID`, `storeID`,`posId`,`IP`,`Active`,`onoff`,`createDate`,`updateDate`)
         values (#{groupID},#{storeID},#{posId},#{IP},#{Active},#{onoff},now(), now())
@@ -521,6 +620,14 @@
         from `printer`
         {include refid="conditionWhere_printer"}
     </select>
+    <select id="selectDetailPrinter">
+        select `groupID`, `storeID`,`posId`,`IP`,`Active`,`onoff`,`createDate`,`updateDate`
+        from `printer`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+          and `posId` = #{posId}
+    </select>
     <insert id="insertPrinter">
         insert into `printer` (`groupID`, `storeID`,`posId`,`IP`,`Active`,`onoff`,`createDate`,`updateDate`)
         values (#{groupID},#{storeID},#{posId},#{IP},#{Active},#{onoff},now(),now())
@@ -562,7 +669,15 @@
         from `settings`
         {include refid="conditionWhere_settings"}
     </select>
-
+    <select id="selectDetailSettings">
+        select `groupID`, `storeID`, `StoreName`, `StorePhone`, `Addr1`, `Addr2`, `City`, `State`, `ZipCode`, `DisplayMode`
+            , `Tax1`, `Tax2`, `Tax3`, `Tax4`, `createDate`, `updateDate`
+        from `settings`
+        where 1=1
+          and `groupID` = #{groupID}
+          and `storeID` = #{storeID}
+    </select>
+    
     <insert id="insertSettings">
         INSERT INTO `settings` (`groupID`, `storeID`, `StoreName`, `StorePhone`, `Addr1`, `Addr2`, `City`, `State`, `ZipCode`, `DisplayMode`, `Tax1`, `Tax2`, `Tax3`, `Tax4`, `createDate`, `updateDate`) 
         VALUES (#{groupID},#{storeID},#{StoreName},#{StorePhone},#{Addr1},#{Addr2},#{City},#{State},#{ZipCode},#{DisplayMode},#{Tax1},#{Tax2},#{Tax3},#{Tax4},now(),now())
@@ -594,6 +709,8 @@
           and `groupID` = #{groupID}
           and `storeID` = #{storeID}
     </delete>
+
+
 
 
 </query>
