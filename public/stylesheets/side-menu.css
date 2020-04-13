@@ -7,6 +7,45 @@ body {
     height: auto;
 }
 
+label {
+    display: inline-block;
+    width: 110px;
+}
+li {
+    padding:2px;
+}
+[type="button"] {
+    margin-right:10px;
+}
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+a {
+    text-decoration: none;
+    color:#777;
+}
 /*
 Add transition to containers so they can push in and out.
 */
@@ -20,6 +59,10 @@ Add transition to containers so they can push in and out.
     transition: all 0.2s ease-out;
 }
 
+#menu1, #modifier1, #modifieritem1 {
+    height:620px;
+    overflow: auto;
+}
 /*
 This is the parent `<div>` that contains the menu and the content area.
 */
@@ -82,7 +125,7 @@ appears on the left side of the page.
 
 #menu {
     margin-left: -150px; /* "#menu" width */
-    width: 150px;
+    width: 210px;
     position: fixed;
     top: 0;
     left: 0;
@@ -217,7 +260,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     }
 
     #layout {
-        padding-left: 170px; /* left col width "#menu" */
+        padding-left: 210px; /* left col width "#menu" */
         position: relative;
         left: 0;
     }

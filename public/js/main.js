@@ -14,10 +14,8 @@ function resize_iframe(e)
       setTimeout(function(){
           _contentHeight = $(e).contents().find("body").prop("scrollHeight");
           $(e).contents().find('#menu').remove();
-          if(_contentHeight > 600) {
-              $(e).height(_contentHeight + 150);
-          }
-      },300);
+          $(e).height(_contentHeight + 1550);
+      },500);
   }
 }
 
@@ -124,9 +122,13 @@ function menuClose(URL, menuNm){
 
 //---------------------- docready ------//
 (function(){
-  console.log('menu.jsp');
+
+  //-- init menu --//
   $('.pure-menu-list2').hide();
-  $('.pure-menu-list').on('click', function() {
-    $('.pure-menu-list2').show('fast');
+
+  $('.menu-list-title').on('click', function(e) {
+    $('.pure-menu-list2').hide();
+    var tab = $(e.target).data('tab');
+    $('#tab'+tab).show('fast');
   });
 })();
