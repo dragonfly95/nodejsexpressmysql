@@ -4,7 +4,7 @@ var router = express.Router();
 //   MySQL 로드
 var pool = require('./dbutil/mysqlConn');
 var batis9 = require("./dbutil/nineBatis");
-batis9.loadQuery(__dirname +'/sql', true);
+// batis9.loadQuery(__dirname +'/sql', true);
 
 const asyncHandler = require('express-async-handler');
 
