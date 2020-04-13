@@ -1,0 +1,62 @@
+extends include/layout
+
+block content
+  #header
+  h2 #{title}
+
+  #main
+    #content  
+
+      table
+        colgroup
+          col(width="400")
+          col(width="600")
+          col(width="300")
+        tr
+          td(style="vertical-align:top;border-right:1px solid #cfcfcf;")
+            ul#menu1
+          td(style="vertical-align:top;border-right:1px solid #cfcfcf;padding-left:20px;")
+            h3 Menu Item
+            ul#menuIitem1
+
+            div#sample
+            div#handlebarArea2
+
+          td(style="vertical-align:top;padding-left:20px;")
+            h3 Item
+            table.pure-table.pure-table-bordered
+              colgroup
+                col(width="50")
+                col(width="350")
+              thead
+                tr
+                  th ID
+                  th Name
+                tbody.result
+
+      <!-- #handlebarArea2 -->
+      script#template2(type="text/x-handlebars-template")
+        h3 Item
+        table.pure-table.pure-table-bordered
+          colgroup
+            col(width='50')
+            col(width='350')
+          thead
+            tr
+              th ID
+              th Name
+          tbody
+            | {{#rows}}
+            tr
+              td {{itemID}}
+              td {{itemName}}
+            | {{/rows}}
+
+      script#template(type='text/x-handlebars-template').
+        {{#if boolean}}
+        text show
+        {{/if}}
+
+
+      script(src="/js/common.menugroup.js")
+      script(src="/js/menuitem.js")

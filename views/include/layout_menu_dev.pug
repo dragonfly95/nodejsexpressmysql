@@ -1,0 +1,81 @@
+.pure-menu
+  a.pure-menu-heading(href='#') PBS-Store
+  ul.pure-menu-list
+    li.pure-menu-item
+      .menu-list-title(data-tab='1') Menu management
+      ul#tab1.pure-menu-list2
+        li.pure-menu-item
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/menugroup.pug', 'Menu group');")
+            span Menu group
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/menu.pug', 'Menu');")
+            span Menu
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/menuitem.pug', 'Menu Item');")
+            span Menu item
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/menumodifier.pug', 'Menu Modifier');")
+            span Menu modifier
+
+    li.pure-menu-item
+      .menu-list-title(data-tab='2') Item management
+      ul#tab2.pure-menu-list2
+        li.pure-menu-item
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/item.pug', 'Item');")
+            span Item
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/modifieritem.pug', 'modifier item');")
+            span modifier item
+
+    li.pure-menu-item
+      .menu-list-title(data-tab='3') modifier management
+      ul#tab3.pure-menu-list2
+        li.pure-menu-item
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/modifiergroup.pug', 'modifier group');")
+            span modifier group
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/modifieritem.pug', 'modifier');")
+            span modifier
+
+    li.pure-menu-item
+      .menu-list-title(data-tab='4') sales management
+      ul#tab4.pure-menu-list2
+        li.pure-menu-item
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/kiosk.pug', 'Card Settlement');")
+            span Card Settlement
+
+
+    li.pure-menu-item
+      .menu-list-title(data-tab='5') Payments
+      ul#tab5.pure-menu-list2
+        li.pure-menu-item
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/kiosk.pug', 'management');")
+            span management
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/kiosk.pug', ' Pay cash ');")
+            span  Pay cash 
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/kiosk.pug', ' Cancel transaction');")
+            span  Cancel transaction
+
+    li.pure-menu-item
+      .menu-list-title(data-tab='6') Devices management
+      ul#tab6.pure-menu-list2
+        li.pure-menu-item
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/kiosk.pug', 'Devices set ');")
+            span Devices set 
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/kiosk.pug', ' KIOSK ');")
+            span  KIOSK 
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/kiosk.pug', ' Card reader');")
+            span  Card reader
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/printer.pug', ' Printer');")
+            span  Printer
+
+    li.pure-menu-item
+      .menu-list-title(data-tab='7') Report
+      ul#tab7.pure-menu-list2
+        li.pure-menu-item
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/kiosk.pug', 'Sales report  ');")
+            span Sales report  
+
+    li.pure-menu-item
+      .menu-list-title(data-tab='8') Settings
+      ul#tab8.pure-menu-list2
+        li.pure-menu-item
+          a.pure-menu-link(href='javascript:void(0);' onclick="menuClick_dev('/store/settings.pug', 'Settings');")
+            span Settings  
+
+

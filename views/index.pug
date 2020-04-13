@@ -1,14 +1,10 @@
-extends layout
+extends include/layout
 
 block content
 
   #main
-    #header
-      h2 Basic DataGrid
-      p Welcome to #{title}
-
-    #targetFrmDiv(style="display:none;position: relative; left:-180px;width: 110%;")
-    #menuTab(style="position:fixed;left:165px;top:10px;display:inline-flex;")
+    #targetFrmDiv(style="display:none;position: relative; left:-200px;width: 110%;")
+    #menuTab(style="position:absolute;left:210px;top:10px;display:inline-flex;")
     #orgFrmDiv(style="display:none;")
       iframe(name="targetFrm" frameborder=0)
     #orgNavDiv(style="display:none;")

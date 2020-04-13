@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title PBS-Store
+    link(rel='stylesheet', href='https://unpkg.com/purecss@1.0.1/build/pure-min.css' integrity="sha384-" crossorigin="anonymous")
+    link(rel='stylesheet', href='/easyui-1.9.4/themes/default/easyui.css')
+    link(rel='stylesheet', href='/easyui-1.9.4/themes/icon.css')
+    link(rel='stylesheet', href='/stylesheets/side-menu.css')
+    link(rel='stylesheet', href='/stylesheets/modal.css')
+
+    script(src="/easyui-1.9.4/jquery.min.js")
+    script(src="/easyui-1.9.4/jquery.easyui.min.js")
+    script(src="/easyui-1.9.4/easyloader.js")
+    script(src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js")
+    script(src="/js/common.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js")
+  body
+
+    div(id="layout")
+      a.menu-link(href="#menu" id="menuLink")
+        span
+
+      div#menu
+        include layout_menu_dev.pug
+
+      block content

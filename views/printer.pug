@@ -1,0 +1,27 @@
+extends include/layout
+
+block content
+  script(src="/js/printer.js")
+  #header
+  h2 #{title}
+
+  #main
+    #content  
+      input.pure-button(type="button" name="btn1" value="저장")
+      span 123
+      input.pure-button(type="button" name="btn2" value="수정")
+      span 123
+      input.button-warning.pure-button(type="button" name="btn3" value="삭제")
+      div(style='margin:20px 0;')
+      table.easyui-datagrid(title='Basic DataGrid' style='width:100%;min-width:700px;height:500px' 
+        data-options="noheader:true,pagination:true,singleSelect:true,collapsible:true,url:'/store/printer',method:'get'")
+        thead
+          tr
+            th(data-options="field:'groupID',width:100") groupID
+            th(data-options="field:'storeID',width:100") storeID
+            th(data-options="field:'printerID',width:100") printerID
+            th(data-options="field:'printerType',width:100") printerType
+            th(data-options="field:'IP',width:100") IP
+            th(data-options="field:'createDate',width:100") createDate
+            th(data-options="field:'updateDate',width:100") updateDate
+

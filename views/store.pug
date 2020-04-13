@@ -1,7 +1,7 @@
-extends layout
+extends include/layout
 
 block content
-
+  script(src="/js/1.js")
   #main
     #header
       h2 Basic DataGrid
@@ -9,6 +9,11 @@ block content
 
     #content  
       p The DataGrid is created from markup, no JavaScript code needed.
+      input.pure-button(type="button" name="btn1" value="저장")
+      span 123
+      input.pure-button(type="button" name="btn2" value="수정")
+      span 123
+      input.button-warning.pure-button(type="button" name="btn3" value="삭제")
       div(style='margin:20px 0;')
       table.easyui-datagrid(title='Basic DataGrid' style='width:700px;height:250px' data-options="pagination:true,singleSelect:true,collapsible:true,url:'datagrid_data1.json',method:'get'")
         thead

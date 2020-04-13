@@ -1,0 +1,73 @@
+extends include/layout
+
+block content
+  #header
+  h2 #{title}
+
+  #main
+    #content  
+
+      table
+        colgroup
+         col(width="600")
+         col(width="600")
+        tr
+          td(style="vertical-align:top;border-right:1px solid #cfcfcf;")
+            h3 Modifier List
+            hr
+            ul#modifieritem1
+          td(style="vertical-align:top;padding-left:20px;")
+            h3 Modifier item
+            hr
+            div#displayDiv(style="margin-left:15px;")
+
+
+
+          script#template(type="text/x-handlebars-template")
+            ul
+              li
+                label(for="groupID") groupID
+                input(type="text", name="groupID" value="{{groupID}}")
+              li
+                label(for="storeID") storeID
+                input(type="text", name="storeID" value="{{storeID}}")
+              li
+                label(for="modifierItemID") modifierItemID
+                input(type="text", name="modifierItemID" value="{{modifierItemID}}")
+              li
+                label(for="ModifierItemName") ModifierItemName
+                input(type="text", name="ModifierItemName" value="{{ModifierItemName}}")
+              li
+                label(for="ModifierItemName2") ModifierItemName2
+                input(type="text", name="ModifierItemName2" value="{{ModifierItemName2}}")
+              li
+                label(for="ModifierItemPrice") ModifierItemPrice
+                input(type="text", name="ModifierItemPrice" value="{{ModifierItemPrice}}")
+              li
+                label(for="tax1") tax1
+                input(type="text", name="tax1" value="{{tax1}}")
+              li
+                label(for="tax2") tax2
+                input(type="text", name="tax2" value="{{tax2}}")
+              li
+                label(for="tax3") tax3
+                input(type="text", name="tax3" value="{{tax3}}")
+              li
+                label(for="tax4") tax4
+                input(type="text", name="tax4" value="{{tax4}}")
+              li
+                label(for="Active") Active
+                input(type="text", name="Active" value="{{Active}}")
+              li
+                label(for="createDate") createDate
+                input(type="text", name="createDate" value="{{createDate}}")
+              li
+                label(for="updateDate") updateDate
+                input(type="text", name="updateDate" value="{{updateDate}}")
+
+
+
+
+
+      script(src="/js/modifieritem.js")
+

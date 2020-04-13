@@ -1,0 +1,119 @@
+extends include/layout
+
+block content
+  script(src="/js/item.js")
+  #header
+  h2 #{title}
+
+  #main
+    #content
+
+      table
+        colgroup
+          col(width="400")
+          col(width="500")
+        tr
+          td(style="vertical-align:top;")
+            div(style="margin-left:15px;")
+              div(style="text-align:right;padding-bottom:10px;")
+                input.pure-button(type="button" name="btnNewTemplate" value="신규")
+              h3(style="position:absolute;top:40px;") 목록
+              hr
+            div(style="margin-left:15px;height: 470px;overflow: auto;")
+              table.pure-table.pure-table-bordered
+                colgroup
+                  col(width="50")
+                  col(width="350")
+                thead
+                  tr
+                    th ID
+                    th Name
+                  tbody.result
+          td(cellpadding="5" style="vertical-align:top;")
+            div#displayDiv(style="margin-left:15px;")
+
+
+
+
+
+
+      script#template(type="text/x-handlebars-template")
+        h3 Item {{title}}
+        hr
+        table
+          tr
+            td groupID
+            td
+              input(name='groupID' value='{{groupID}}')
+          tr
+            td storeID
+            td
+              input(name='storeID' value='{{storeID}}')
+          tr
+            td itemID
+            td
+              input(name='itemID' value='{{itemID}}')
+          tr
+            td itemName
+            td
+              input(name='itemName' value='{{itemName}}')
+          tr
+            td itemName2
+            td
+              input(name='itemName2' value='{{itemName2}}')
+          tr
+            td description
+            td
+              input(name='description' value='{{description}}')
+          tr
+            td price
+            td
+              input(name='price' value='{{price}}')
+          tr
+            td rateDiscount
+            td
+              input(name='rateDiscount' value='{{rateDiscount}}')
+          tr
+            td imagefilename
+            td
+              input(name='imagefilename' value='{{imagefilename}}')
+          tr
+            td tax1
+            td
+              input(name='tax1' value='{{tax1}}')
+          tr
+            td tax2
+            td
+              input(name='tax2' value='{{tax2}}')
+          tr
+            td tax3
+            td
+              input(name='tax3' value='{{tax3}}')
+          tr
+            td tax4
+            td
+              input(name='tax4' value='{{tax4}}')
+          tr
+            td togoPrice
+            td
+              input(name='togoPrice' value='{{togoPrice}}')
+          tr
+            td ageCheck
+            td
+              input(name='ageCheck' value='{{ageCheck}}')
+          tr
+            td ageLimit
+            td
+              input(name='ageLimit' value='{{ageLimit}}')
+          tr
+            td Active
+            td
+              input(name='Active' value='{{Active}}')
+          tr
+            td createDate
+            td
+              input(name='createDate' value='{{createDate}}')
+          tr
+            td updateDate
+            td
+              input(name='updateDate' value='{{updateDate}}')

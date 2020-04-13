@@ -1,0 +1,36 @@
+extends include/layout
+
+block content
+  #header
+  h2 #{title}
+
+  #main
+    #content  
+
+      table
+        colgroup
+         col(width="300")
+         col(width="700")
+        tr
+          td(style="vertical-align:top;border-right:1px solid #cfcfcf;")
+            ul#group1
+          td(style="vertical-align:top;padding-left:20px;")
+            h3 메뉴그룹
+            hr
+            ul
+              li
+                label(for="") 
+                input(type="button" name="btnSave" value="save")
+                input(type="button" name="btnDelete" value="delete") 
+              li
+                label(for="") Menu Group : 
+                input(type="text" name="menuGroupName" value="")
+              li
+                form(name="frm" method="post" enctype="multipart/form-data" action="/up")
+                  label(for="") Image : 
+                  input(type="file" name="img" value="" accept="image/*")
+                  input(type="button" name="btnFileupload" value="fileupload")
+              li
+                img.resource(src="" alt="")
+
+      script(src="/js/menugroup.js")

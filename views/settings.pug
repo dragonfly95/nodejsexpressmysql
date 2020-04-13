@@ -1,0 +1,35 @@
+extends include/layout
+
+block content
+  script(src="/js/settings.js")
+  #header
+    h2 #{title}
+
+  #main
+    #content  
+      input.pure-button(type="button" name="btn1" value="저장")
+      span 123
+      input.pure-button(type="button" name="btn2" value="수정")
+      span 123
+      input.button-warning.pure-button(type="button" name="btn3" value="삭제")
+      div(style='margin:20px 0;')
+      table#dg.easyui-datagrid(title='Basic DataGrid' style='width:100%;min-width:700px;height:300px' 
+        data-options="noheader:true,singleSelect: true,pagination:true,singleSelect:true,collapsible:true,url:'/store/settings',method:'get',onClickCell: onClickCell,onEndEdit: onEndEdit")
+        thead
+          tr
+            th(data-options="field:'groupID',width:100") groupID
+            th(data-options="field:'storeID',width:100,editor:'text'") storeID
+            th(data-options="field:'StoreName',width:100,editor:'text'") StoreName
+            th(data-options="field:'StorePhone',width:100,editor:'text'") StorePhone
+            th(data-options="field:'Addr1',width:100,editor:'text'") Addr1
+            th(data-options="field:'Addr2',width:100,editor:'text'") Addr2
+            th(data-options="field:'City',width:100,editor:'text'") City
+            th(data-options="field:'State',width:100,editor:'text'") State
+            th(data-options="field:'ZipCode',width:100,editor:'text'") ZipCode
+            th(data-options="field:'DisplayMode',width:100,editor:'text'") DisplayMode
+            th(data-options="field:'Tax1',width:100,editor:'text'") Tax1
+            th(data-options="field:'Tax2',width:100,editor:'text'") Tax2
+            th(data-options="field:'Tax3',width:100,editor:'text'") Tax3
+            th(data-options="field:'Tax4',width:100,editor:'text'") Tax4
+            th(data-options="field:'createDate',width:100") createDate
+            th(data-options="field:'updateDate',width:100") updateDate
